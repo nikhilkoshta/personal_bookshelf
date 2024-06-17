@@ -6,7 +6,7 @@ const BookshelfPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('https://personal-bookshelf-tan.vercel.app/books')
+    axios.get('https://personal-bookshelf-server.vercel.app/books')
       .then(response => {
         console.log('Response data:', response.data);
         if (Array.isArray(response.data)) {
