@@ -3,16 +3,28 @@ import axios from 'axios';
 
 const BookshelfPage = () => {
   const [bookshelf, setBookshelf] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios.get('https://personal-bookshelf-server.vercel.app/books')
       .then(response => {
-        setBookshelf(response.data);
+        if (Array.isArray(response.data)) {
+          setBookshelf(response.data);
+        } else {
+          console.error('Data is not an array:', response.data);
+          setBookshelf([]);
+        }
       })
       .catch(err => {
-        console.error(err);
+        console.error('Fetch error:', err);
+        setError(err);
+        setBookshelf([]);
       });
   }, []);
+
+  if (error) {
+    return <div>Error loading bookshelf: {error.message}</div>;
+  }
 
   return (
     <div className="text-center m-6">
