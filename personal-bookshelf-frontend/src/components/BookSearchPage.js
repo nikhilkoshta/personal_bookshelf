@@ -24,7 +24,7 @@ const BookSearchPage = () => {
   };
 
   const addToBookshelf = (book) => {
-    axios.post('https://personal-bookshelf-tan.vercel.app/books/add', {
+    axios.post('https://personal-bookshelf-server.vercel.app/books/add', {
       title: book.title,
       edition_count: book.edition_count,
     }).then(() => {
