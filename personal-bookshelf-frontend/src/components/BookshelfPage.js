@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const BookshelfPage = () => {
+const BookshelfPage = async () => {
   const [bookshelf, setBookshelf] = useState([]);
 
-  useEffect(() => {
+  await useEffect(() => {
     axios.get('https://personal-bookshelf-tan.vercel.app/books')
       .then(response => {
         setBookshelf(response.data);
