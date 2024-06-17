@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://personal-bookshelf-tan.vercel.app/'],
+  origin: ['http://localhost:3000', 'https://personal-bookshelf-server.vercel.app'],
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
