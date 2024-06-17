@@ -1,12 +1,11 @@
-// src/components/BookshelfPage.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const BookshelfPage = () => {
   const [bookshelf, setBookshelf] = useState([]);
 
-   useEffect(() => {
-    axios.get('https://personal-bookshelf-tan.vercel.app/books')
+  useEffect(() => {
+    axios.get('https://personal-bookshelf-server.vercel.app/books')
       .then(response => {
         setBookshelf(response.data);
       })
